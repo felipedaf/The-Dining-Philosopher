@@ -1,14 +1,19 @@
 package diningPh;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Fork {
     private int forkId;
     private boolean inUse;
     private Philosopher owner;
+    public static List<Fork> available = new ArrayList();
 
     public Fork(int id) {
         this.forkId = id;
         this.inUse = false;
         this.owner = null;
+        available.add(this);
     }
 
     public Philosopher getOwner() {
@@ -29,5 +34,10 @@ public class Fork {
 
     public boolean isInUse() {
         return inUse;
+    }
+
+    @Override
+    public String toString() {
+        return "Fork: " + this.forkId + " - inUse: " + this.inUse;
     }
 }
